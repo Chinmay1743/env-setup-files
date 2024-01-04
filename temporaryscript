@@ -1,0 +1,48 @@
+#!/bin/bash
+
+# It is recommended to run this file as sudo :)
+
+#Standard system update
+sudo apt update;
+sudo apt upgrade -y;
+
+# Uninstall any existing package around docker to avoid conflicts while installing docker properly.
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+#Install necessary packages many of which are required for other softwares (almost irrespective of debian distro at this point)
+sudo apt install \
+git curl locate neofetch awscli python3-pip ncurses-hexedit neovim \
+htop ca-certificates gnupg libssl-dev pkg-config build-essential cmake \
+meson libzip-dev zlib1g-dev qtbase5-dev libqt5svg5-dev qttools5-dev \
+qttools5-dev-tools libkf5syntaxhighlighting-dev libgraphviz-dev \
+libshiboken2-dev libpyside2-dev qtdeclarative5-dev
+
+#Install rust in system ; make sure to customise installation and do complete install over default
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source "$HOME/.cargo/env"
+
+#Install vscodium in ubuntu (visual glitch with codium in any installation method NO IDEA WHY)
+# DO NOT RUN THIS ON PARROT. Preinstalled in that OS.
+#alternatively You can download the same from https://github.com/VSCodium/vscodium/releases instead of doing all the steps below.
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | gpg --dearmor | sudo dd of=/usr/share/keyrings/vscodium-archive-keyring.gpg
+echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
+sudo apt update && sudo apt install codium
+
+#install docker and related packages in ubuntu
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+#install cutter in linux
+git clone --recurse-submodules https://github.com/rizinorg/cutter
+cd cutter; mkdir build; cd build; cmake ..
+cmake --build .
+cd ../../
+#To run cutter:
+./cutter/build/cutter
+
+# Only above content as of now.
+
