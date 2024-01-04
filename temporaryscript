@@ -17,6 +17,7 @@ meson libzip-dev zlib1g-dev qtbase5-dev libqt5svg5-dev qttools5-dev \
 qttools5-dev-tools libkf5syntaxhighlighting-dev libgraphviz-dev \
 libshiboken2-dev libpyside2-dev qtdeclarative5-dev nodejs npm
 
+
 #Install rust in system ; make sure to customise installation and do complete install over default
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source "$HOME/.cargo/env"
@@ -35,6 +36,13 @@ sudo chmod a+r /etc/apt/keyrings/docker.gpg
 echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# [Optional] Install juice shop in Ubuntu
+# Download latest .deb release from here: https://github.com/juice-shop/juice-shop/releases/
+# Or you can just download the docker part and run since docker is installed by now
+docker pull bkimminich/juice-shop
+docker run --rm -p 3000:3000 bkimminich/juice-shop
+# Access the machine here: http://localhost:3000
 
 #install cutter in linux
 git clone --recurse-submodules https://github.com/rizinorg/cutter
