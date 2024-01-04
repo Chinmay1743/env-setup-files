@@ -14,6 +14,8 @@ chmod +x temporaryscript; \
 But since a lot of necessary packages are not available in first place (including git), here is the core snippet that you need to run first:
 
 ```
+sudo apt update;
+sudo apt upgrade -y;
 sudo apt install \
 git curl locate neofetch awscli python3-pip ncurses-hexedit neovim \
 htop ca-certificates gnupg libssl-dev pkg-config build-essential cmake \
