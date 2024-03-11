@@ -25,4 +25,8 @@ chmod +x temporaryscript; \
 ./temporaryscript
 ```
 
+### ToDo : change NPM and node setup since repositry has older versions
+
+
+
 
