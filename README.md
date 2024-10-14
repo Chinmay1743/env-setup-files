@@ -14,7 +14,7 @@ meson libzip-dev zlib1g-dev qtbase5-dev libqt5svg5-dev qttools5-dev \
 qttools5-dev-tools libkf5syntaxhighlighting-dev libgraphviz-dev \
 libshiboken2-dev libpyside2-dev qtdeclarative5-dev \
 libgtk-3-dev libayatana-appindicator3-dev librsvg2-dev file \
-qt6-base-dev qt6-tools-dev qt6-charts-dev
+qt6-base-dev qt6-tools-dev qt6-charts-dev qt6-declarative-dev
 ```
 
 Ideally, to get started with the script (dependency required: git):
