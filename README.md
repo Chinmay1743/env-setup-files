@@ -27,6 +27,9 @@ chmod +x temporaryscript; \
 ```
 
 ### ToDo : change NPM and node setup since repositry has older versions
+### Update: Please do not run ubuntu script in other distros. Things such as docker are prone to break updates.
+
+
 
 
 
