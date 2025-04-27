@@ -2,7 +2,7 @@
 
 Removing headaches from setups (and life) one automation at a time.
 
-Since a lot of necessary packages are not available in first place (including git), here is the core snippet that you need to run first:
+Since a lot of necessary packages are not available in first place (including git), here is the core snippet that you need to run first (strictly for Ubuntu):
 
 ```
 sudo apt update;
@@ -26,7 +26,9 @@ chmod +x temporaryscript; \
 ./temporaryscript
 ```
 
-### ToDo : change NPM and node setup since repositry has older versions
+### ToDo :
+- create more snippets for Kali, Fedora, Debian vanilla, etc...
+- change NPM and node setup since repositry has older versions
 ### Update: Please do not run ubuntu script in other distros. Things such as docker are prone to break updates.
 
 
