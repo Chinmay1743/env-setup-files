@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # It is recommended to run this file as sudo :)
+# Update: Run this only on Ubuntu. Do not attempt on kali or other distributions.
 
 #Standard system update
 sudo apt update;
