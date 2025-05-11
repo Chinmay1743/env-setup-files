@@ -8,7 +8,7 @@ sudo dnf upgrade -y;
 
 # Install necessary packages many of which are required for other softwares (almost irrespective of debian distro at this point)
 sudo dnf install \
-awscli python3-pip neovim htop cmake meson
+awscli python3-pip neovim htop cmake meson gnome-tweaks gtk-murrine-engine
 
 # Install rust in system ; make sure to customise installation and do complete install over default
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
