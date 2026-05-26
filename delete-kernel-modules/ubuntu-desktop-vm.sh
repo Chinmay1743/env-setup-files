@@ -15,6 +15,7 @@
 # may be too big to scroll on terminal so save it in a file:
 # ls -R /lib/modules/$(uname -r)/kernel/ > list-kernel-module-output.txt
 
+# Run the command to check which modules are currently loaded: lsmod
 
 echo "Cleanup Script for Ubuntu VM"
 
