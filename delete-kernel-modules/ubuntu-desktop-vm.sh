@@ -7,6 +7,14 @@
 #
 # This file will receive update from time to time based on new modules that I find useless.
 
+# Run following command to check built-in modules compiled with kernel. Assume that you 
+# will need to recompile the kernel if you wish to remove it:
+# cat /lib/modules/$(uname -r)/modules.builtin
+
+# Run following command to check to list all installed modules in your system. The output
+# may be too big to scroll on terminal so save it in a file:
+# ls -R /lib/modules/$(uname -r)/kernel/ > list-kernel-module-output.txt
+
 
 echo "Cleanup Script for Ubuntu VM"
 
